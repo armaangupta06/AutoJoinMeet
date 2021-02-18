@@ -5,7 +5,7 @@ from send_messages import send_Message
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 import datetime
-
+import pyautogui
 
 opt = Options()
 opt.add_argument("--disable-infobars")
@@ -37,12 +37,21 @@ def make_instance(quit=False):
             current_bot.quit()
             return
 
+def type_chat(bot, type):
+    btn = bot.find_element_by_xpath("/html/body/div[1]/c-wiz/div[1]/div/div[8]/div[3]/div[1]/div[3]/div/div[2]/div[3]")
+    time.sleep(1)
+    btn.click()
+    time.sleep(1)
+    pyautogui.write(type)
+    time.sleep(1)
+    pyautogui.press("enter")
+    time.sleep(1)
 
 
 
-def join_classes(meeting_link = "", quit = False):
+def join_classes(meeting_link = "", quit = False, click = False, type = ""):
     email = "3012624@chclc.org"
-    pas = ""
+    pas = "Ag2624!"
     phonenumber1 = "8568736010"
     phonenumber2 = "8568736000"
     phonenumber3 = "8568733066"
@@ -109,6 +118,9 @@ def join_classes(meeting_link = "", quit = False):
             print("Joined meeting")
         except NoSuchElementException:
             print("Joined meeting")
+
+    if click == True:
+        type_chat(bot, "here")
 '''
     while True:
         if (justtime == "12:38" or justtime == "11:57" or justtime == "13:06" or justtime == "14:15"):

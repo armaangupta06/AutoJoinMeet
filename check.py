@@ -1,7 +1,6 @@
 import datetime
 from send_messages import send_Message
 from execute import join_classes
-from quit import finish
 import time
 def loop():
     counter = 0
@@ -11,10 +10,10 @@ def loop():
     # %A is to get the name of the Day!
     justtime = now.strftime("%H:%M")
     print(justtime)
-    first_class = "09:45"
-    second_class = "10:54"
-    third_class = "12:03"
-    fourth_class = "13:12"
+    first_class = "09:46"
+    second_class = "10:55"
+    third_class = "12:04"
+    fourth_class = "13:13"
     
     phonenumber1 = "8568736010"
     phonenumber2 = "8568736000"
@@ -82,15 +81,15 @@ def loop():
                             join_classes(period_d)
 
                         elif ((justtime == third_class)):
-                            # Functions
+                            # Phys Ed
                             counter += 1
                             send_Message("Class is starting...", phonenumber1, phonenumber2, phonenumber3, phonenumber4)
-                            join_classes(period_g)
+                            join_classes(period_g, click=True, type="here")
                         elif ((justtime == fourth_class)):
-                            # English
+                            # Intro to Comp Programming
                             counter += 1
                             send_Message("Class is starting...", phonenumber1, phonenumber2, phonenumber3, phonenumber4)
-                            join_classes(period_h)
+                            join_classes(period_h, click=True, type="here")
 
                 elif (period == "A"):
 
@@ -134,15 +133,15 @@ def loop():
                             join_classes(period_d)
 
                         elif ((justtime == third_class)):
-                            # Functions
+                            # Phys Ed
                             counter += 1
                             send_Message("Class is starting...", phonenumber1, phonenumber2, phonenumber3, phonenumber4)
-                            join_classes(period_g)
+                            join_classes(period_g, click=True, type = "here")
                         elif ((justtime == fourth_class)):
-                            # English
+                            # Intro to Computer Programming
                             counter += 1
                             send_Message("Class is starting...", phonenumber1, phonenumber2, phonenumber3, phonenumber4)
-                            join_classes(period_h)
+                            join_classes(period_h, click=True, type="here")
             else:
                 time.sleep(20)
                 now = datetime.datetime.now()
