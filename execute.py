@@ -26,7 +26,7 @@ def make_instance(quit=False):
     global last_bot
     global current_bot
     if quit == False:
-        bot = webdriver.Chrome(options=opt, executable_path=r"C:/Users/Atlantic Pain/Desktop/chromedriver.exe")
+        bot = webdriver.Chrome(options=opt, executable_path="/Users/armaangupta/Downloads/chromedriver")
         current_bot = bot
         return current_bot
     elif quit == True:
