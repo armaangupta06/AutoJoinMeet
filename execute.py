@@ -7,6 +7,7 @@ from selenium.common.exceptions import NoSuchElementException
 import datetime
 import pyautogui
 
+
 opt = Options()
 opt.add_argument("--disable-infobars")
 opt.add_argument("start-maximized")
