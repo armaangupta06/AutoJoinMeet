@@ -35,6 +35,7 @@ def make_instance(quit=False):
 
         else:
             current_bot.quit()
+            print("Quit")
             return
 
 def type_chat(bot, type):
