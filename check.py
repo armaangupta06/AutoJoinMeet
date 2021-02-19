@@ -3,6 +3,7 @@ from send_messages import send_Message
 from execute import join_classes
 import time
 def loop():
+
     counter = 0
     period = "B"
     now = datetime.datetime.now()
