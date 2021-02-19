@@ -3,6 +3,7 @@ from send_messages import send_Message
 from execute import join_classes
 import time
 def loop():
+
     counter = 0
     period = "B"
     now = datetime.datetime.now()
@@ -11,7 +12,7 @@ def loop():
     justtime = now.strftime("%H:%M")
     print(justtime)
     first_class = "09:46"
-    second_class = "10:55"
+    second_class = "11:49"
     third_class = "12:04"
     fourth_class = "13:13"
     
