@@ -1,5 +1,5 @@
 import os
-
+from discord_mesage import discord_send_messsage
 
 
 def send_Message(message, *args):
@@ -17,6 +17,9 @@ def send_Message(message, *args):
 
             END"""
         os.system(cmd)
+
+
+    discord_send_messsage(message)
 
 
 

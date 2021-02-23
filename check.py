@@ -1,6 +1,7 @@
 import datetime
 from send_messages import send_Message
 from execute import join_classes
+from discord_mesage import discord_send_messsage
 import time
 def loop():
 
@@ -33,6 +34,7 @@ def loop():
         if counter == 0:
             if (justtime == "10:48" or justtime == "11:57" or justtime == "13:06" or justtime == "14:15"):
                 send_Message("Class is finished...", phonenumber1, phonenumber2, phonenumber3, phonenumber4)
+
                 counter += 1
                 join_classes(quit=True)
             if (justtime == "09:35" or justtime == "10:44" or justtime == "11:53" or justtime == "13:03"):
