@@ -5,7 +5,7 @@ import time
 def loop():
 
     counter = 0
-    period = "B"
+    period = "A"
     now = datetime.datetime.now()
     current_time = now.strftime("%A")
     # %A is to get the name of the Day!

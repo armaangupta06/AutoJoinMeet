@@ -123,6 +123,8 @@ def join_classes(meeting_link = "", quit = False, click = False, type = ""):
 
     if click == True:
         type_chat(bot, "here")
+
+   # transcript(bot)
 '''
     while True:
         if (justtime == "12:38" or justtime == "11:57" or justtime == "13:06" or justtime == "14:15"):
@@ -137,7 +139,14 @@ def join_classes(meeting_link = "", quit = False, click = False, type = ""):
             justtime = now.strftime("%H:%M")
 
             print(justtime)
+            
 '''
 
 
+
+def transcript(bot):
+    btn = bot.find_element_by_xpath("/html/body/div[1]/c-wiz/div[1]/div/div[8]/div[3]/div[1]/div[3]/div/div[2]/div[1]")
+    time.sleep(1)
+    btn.click()
+    time.sleep(1)
 
