@@ -40,7 +40,8 @@ def make_instance(quit=False):
             return
 
 def type_chat(bot, type):
-    btn = bot.find_element_by_xpath("/html/body/div[1]/c-wiz/div[1]/div/div[8]/div[3]/div[1]/div[3]/div/div[2]/div[3]")
+    time.sleep(2)
+    btn = bot.find_element_by_xpath("/html/body/div[1]/c-wiz/div[1]/div/div[9]/div[3]/div[1]/div[3]/div/div[2]/div[3]")
     time.sleep(1)
     btn.click()
     time.sleep(1)
@@ -57,7 +58,7 @@ def join_classes(meeting_link = "", quit = False, click = False, type = ""):
     phonenumber1 = "8568736010"
     phonenumber2 = "8568736000"
     phonenumber3 = "8568733066"
-    phonenumber4 = "8567019014"
+    phonenumber4 = ""
     if quit == True:
         make_instance(quit=True)
         time.sleep(3)
@@ -69,60 +70,47 @@ def join_classes(meeting_link = "", quit = False, click = False, type = ""):
     bot.maximize_window()
     bot.get(
         "https://accounts.google.com/signin/v2/identifier?ltmpl=meet&continue=https%3A%2F%2Fmeet.google.com%3Fhs%3D193&&o_ref=https%3A%2F%2Fmeet.google.com%2F_meet%2Fwhoops%3Fsc%3D232%26alias%3Dmymeetingraheel&_ga=2.262670348.1240836039.1604695943-1869502693.1604695943&flowName=GlifWebSignIn&flowEntry=ServiceLogin")
-    time.sleep(3)
+    time.sleep(2)
     email_in = bot.find_element_by_xpath(
         "/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div/div[1]/div/div[1]/input")
     email_in.send_keys(email)
-    time.sleep(1)
+    time.sleep(0.5)
     next_btn = bot.find_element_by_xpath(
         "/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]")
     next_btn.click()
-    time.sleep(3)
+    time.sleep(4)
     pas_in = bot.find_element_by_xpath(
         "/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input")
     pas_in.send_keys(pas)
-    time.sleep(1)
+    time.sleep(0.5)
     next1_btn = bot.find_element_by_xpath(
         "/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]").click()
     time.sleep(4)
-    time.sleep(1)
     bot.get(meeting_link)
-    time.sleep(1)
+    time.sleep(2)
+
+
+
     try:
-        diss_btn = bot.find_element_by_xpath("/html/body/div/div[3]/div/div[2]/div[3]/div/span/span")
-        diss_btn.click()
-        time.sleep(2)
+        time.sleep(1)
+        mute_btn = bot.find_element_by_xpath("/html/body/div[1]/c-wiz/div/div/div[9]/div[3]/div/div/div[2]/div/div[1]/div[1]/div[1]/div/div[3]/div[1]/div/div/div")
+
+        mute_btn.click()
+        camera_btn = bot.find_element_by_xpath("/html/body/div[1]/c-wiz/div/div/div[9]/div[3]/div/div/div[2]/div/div[1]/div[1]/div[1]/div/div[3]/div[2]/div/div")
+        camera_btn.click()
+        time.sleep(1)
         join_btn = bot.find_element_by_xpath(
-        "/html/body/div[1]/c-wiz/div/div/div[8]/div[3]/div/div/div[2]/div/div[1]/div[2]/div/div[2]/div/div[1]/div[1]")
+        "/html/body/div[1]/c-wiz/div/div/div[9]/div[3]/div/div/div[2]/div/div[1]/div[2]/div/div[2]/div/div[1]/div[1]")
         join_btn.click()
     except NoSuchElementException:
-        try:
-            time.sleep(1)
-            time.sleep(2)
-            mute_btn = bot.find_element_by_xpath("/html/body/div[1]/c-wiz/div/div/div[8]/div[3]/div/div/div[2]/div/div[1]/div[1]/div[1]/div/div[3]/div[1]/div/div/div")
-            mute_btn.click()
-            time.sleep(1)
-            time.sleep(2)
-            camera_btn = bot.find_element_by_xpath("/html/body/div[1]/c-wiz/div/div/div[8]/div[3]/div/div/div[2]/div/div[1]/div[1]/div[1]/div/div[3]/div[2]/div/div")
-            camera_btn.click()
-            time.sleep(2)
-            join_btn = bot.find_element_by_xpath(
-            "/html/body/div[1]/c-wiz/div/div/div[8]/div[3]/div/div/div[2]/div/div[1]/div[2]/div/div[2]/div/div[1]/div[1]")
-            join_btn.click()
-        except NoSuchElementException:
-            send_Message("No class today", "8568736010")
-            return
-    finally:
-        #second dismiss button
-        try:
-            time.sleep(5)
-            bot.find_element_by_xpath("/html/body/div[1]/div[3]/div/div[2]/div[3]/div/span/span").click()
-            print("Joined meeting")
-        except NoSuchElementException:
-            print("Joined meeting")
+        send_Message("No class today", "8568736010")
+        return
 
-    if click == True:
-        type_chat(bot, "here")
+    finally:
+        if click == True:
+            time.sleep(2)
+            type_chat(bot, "here")
+        print("Joined Meeting")
 
    # transcript(bot)
 '''

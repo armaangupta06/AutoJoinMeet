@@ -1,10 +1,10 @@
 import os
-from discord_mesage import discord_send_messsage
+
 
 
 def send_Message(message, *args):
 
-
+    print(message)
     for arg in args:
 
         cmd = f"""osascript<<END
@@ -19,7 +19,6 @@ def send_Message(message, *args):
         os.system(cmd)
 
 
-    discord_send_messsage(message)
 
 
 
