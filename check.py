@@ -14,8 +14,8 @@ def loop():
     print(current_time)
     first_class = "09:45"
     second_class = "11:00"
-    third_class = "12:15"
-    fourth_class = "13:27"
+    third_class = "12:17"
+    fourth_class = "13:35"
     
     phonenumber1 = "8568736010"
     phonenumber2 = ""

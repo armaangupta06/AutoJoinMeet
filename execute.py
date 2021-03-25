@@ -45,11 +45,11 @@ def type_chat(bot, type):
     time.sleep(1)
     btn.click()
     time.sleep(1)
-    pyautogui.write(type)
+    typing_place = bot.find_element_by_xpath("/html/body/div[1]/c-wiz/div[1]/div/div[9]/div[3]/div[4]/div/div[2]/div[2]/div[2]/span[2]/div/div[3]/div[1]/div[1]/div[2]/textarea")
+    typing_place.send_keys(str(type))
     time.sleep(1)
-    pyautogui.press("enter")
-    time.sleep(1)
-
+    button5 = bot.find_element_by_xpath("/html/body/div[1]/c-wiz/div[1]/div/div[9]/div[3]/div[4]/div/div[2]/div[2]/div[2]/span[2]/div/div[3]/div[2]")
+    button5.click()
 
 
 def join_classes(meeting_link = "", quit = False, click = False, type = ""):
@@ -92,7 +92,7 @@ def join_classes(meeting_link = "", quit = False, click = False, type = ""):
 
 
     try:
-        time.sleep(1)
+        time.sleep(10)
         mute_btn = bot.find_element_by_xpath("/html/body/div[1]/c-wiz/div/div/div[9]/div[3]/div/div/div[2]/div/div[1]/div[1]/div[1]/div/div[3]/div[1]/div/div/div")
 
         mute_btn.click()
@@ -106,11 +106,11 @@ def join_classes(meeting_link = "", quit = False, click = False, type = ""):
         send_Message("No class today", "8568736010")
         return
 
-    finally:
-        if click == True:
-            time.sleep(2)
-            type_chat(bot, "here")
-        print("Joined Meeting")
+
+    if click == True:
+        time.sleep(2)
+        type_chat(bot, "here")
+    print("Joined Meeting")
 
    # transcript(bot)
 '''
